@@ -1,0 +1,34 @@
+{
+  "name": "AXEBienesRaices",
+  "version": "0.0.1",
+  "description": "AXE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cesar Manuel Gomez",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.5.4",
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-order": "^1.1.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "node-php-server": "^0.1.2"
+  }
+}

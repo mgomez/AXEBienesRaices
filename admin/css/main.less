@@ -1,0 +1,217 @@
+/* ==========================================================================
+   @zkar13
+   ========================================================================== */
+
+@import "animate";
+//Media Querys
+@desktop: ~"only screen and (min-width: 960px) and (max-width: 1199px)";
+@tablet: ~"only screen and (min-width: 720px) and (max-width: 959px)";
+@mobile: ~"only screen and (max-width: 480px)";
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    background: url(../img/icon.png) no-repeat bottom right;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#renderBody {
+    flex: 1;
+}
+
+footer {
+    background: linear-gradient(to right, #2f2e2c 0%, #cf611f 100%);
+    padding: 35px;
+    border-top: 15px solid #ea6e23;
+    color: #fff;
+}
+
+.form-group label.control-label {
+    color: #333;
+    font-weight: 900;
+}
+
+.table {
+    & thead {
+        & tr {
+            background: linear-gradient(180deg, #ffffff, #c5c5c5);
+            & th {
+                color: #5f5f5f;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+}
+
+.detail-icon {
+    color: #03a9f4;
+}
+
+.loadingView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8) url(../img/ripple.svg) no-repeat center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 9999;
+    & .loadingView-title {
+        background: #fff;
+        border-bottom: 5px solid #FF5722;
+        border-top: 5px solid #F44336;
+        color: #2f353c;
+        flex: 1 1 auto;
+        font-size: 24px;
+        font-weight: 900;
+    }
+}
+
+.error500 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    & .error500-content {
+        background: #ffffff;
+        border-radius: 5px;
+        border: 5px solid #5d5d5d;
+        box-shadow: inset 0px 0px 10px 10px #bfbfbf;
+        padding: 35px;
+        text-align: center;
+    }
+    & .error500-text {
+        font-size: 22px;
+    }
+}
+
+.header {
+    background: #ed6f23;
+    text-align: right;
+    & button {
+        color: #fff !important;
+        text-shadow: none !important;
+    }
+}
+
+.avatar {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.page {
+    background: #fff;
+}
+
+.section {
+    position: relative;
+    top: -10px;
+}
+
+.ExpandRow {
+    background: #fff;
+    padding: 18px;
+}
+
+.selectedValue {
+    color: #777;
+    background: #e0e0e0;
+    padding: 5px 5px 5px 15px;
+    margin: 5px 0px;
+    display: block;
+    border-radius: 5px;
+}
+
+#login-container {
+    position: relative;
+    height: 100vh;
+    & #login {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 15px;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, .3);
+        text-align: center;
+        & #logo {
+            display: inline-block;
+        }
+    }
+}
+
+#content-images {
+    padding: 15px;
+    background: #eee;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    align-content: stretch;
+    & .imagen {
+        flex: 1 1;
+        text-align: center;
+        min-width: 300px;
+        & a {
+            background: #fff;
+            border-radius: 5px;
+            border: 3px solid #fff;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            &::after {
+                background: #F44336;
+                border-radius: 5px;
+                color: white;
+                content: "eliminar";
+                display: inline-block;
+                left: 50%;
+                padding: 8px;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                transition-property: transform, box-shadow;
+                transition-duration: 0.2s, 0.5s;
+                transition-delay: 0s, 0.2s;
+                transition-timing-function: ease-in, ease-in-out;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                display: inline-block;
+                background: rgba(0, 0, 0, .8);
+                z-index: 0;
+                transition: all 0.2s ease-in;
+            }
+            &:hover {
+                &::after {
+                    transform: translate(-50%, -70%);
+                    box-shadow: 0px 0px 0px 10px rgba(244, 67, 54, 0.45);
+                }
+                &::before {
+                    opacity: 0;
+                }
+            }
+            & img {
+                display: inline-block;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    }
+}

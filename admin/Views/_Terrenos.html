@@ -1,0 +1,71 @@
+<section id="terrenos" class="terrenos section">
+    <div class="container">
+        <div class="well page">
+            <div class="pull-right">
+                <button id="btnNuevoTerreno" type="button" class="btn btn-info btn-raised">
+                    <span>Nuevo Terreno</span>
+                </button>
+            </div>
+            <h2><i class="fa fa-home" aria-hidden="true"></i> Terrenos</h2>
+            <div class="tableTerrenosContainer">
+                <table id="tableTerrenos" data-detail-view>
+                    <thead>
+                        <tr>
+                            <th data-field="iTerrenoId" data-sortable="true">ID</th>
+                            <th data-field="vcTitulo">Titulo</th>
+                            <th data-field="vcDescripcion" data-visible="false"></th>
+                            <th data-field="asesor" data-sortable="true">Asesor</th>
+                            <th data-field="estado" data-sortable="true">Estado</th>
+                            <th data-field="municipio">Municipio</th>
+                            <th data-field="localidad">Localidad</th>
+                            <th data-field="vcDireccion">Direccion</th>
+                            <th data-field="iActivo" data-sortable="true" data-formatter="formatActivo">Activo?</th>
+                            <th data-field="iFTipo" data-visible="false"></th>
+                            <th data-field="tipo" data-visible="false">Tipo</th>
+                            <th data-field="vcOperacion" data-visible="false">Operacion</th>
+                            <th data-field="vcNumeroInventario">Numero Inventario</th>
+                            <th data-field="vcFondo" data-visible="false"></th>
+                            <th data-field="vcFrente" data-visible="false"></th>
+                            <th data-field="iFEstado" data-visible="false"></th>
+                            <th data-field="iFMunicipio" data-visible="false"></th>
+                            <th data-field="iFLocalidad" data-visible="false"></th>
+                            <th data-field="iFAsesor" data-visible="false"></th>
+                            <th data-field="decPrecio" data-sortable="true" data-formatter="formatMoney">Precio</th>
+                            <th data-field="vcSuperficieTerreno" data-visible="false"></th>
+                            <th data-field="vcSuperficieConstruccion" data-visible="false"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each Terrenos}}
+                            <tr>
+                                <td>{{iTerrenoId}}</td>
+                                <td>{{vcTitulo}}</td>
+                                <td>{{vcDescripcion}}</td>
+                                <td>{{asesor}}</td>
+                                <td>{{estado}}</td>
+                                <td>{{municipio}}</td>
+                                <td>{{localidad}}</td>
+                                <td>{{vcDireccion}}</td>
+                                <td>{{iActivo}}</td>
+                                <td>{{iFTipo}}</td>
+                                <td>{{tipo}}</td>
+                                <td>{{vcOperacion}}</td>
+                                <td>{{vcNumeroInventario}}</td>
+                                <td>{{vcFondo}}</td>
+                                <td>{{vcFrente}}</td>
+                                <td>{{iFEstado}}</td>
+                                <td>{{iFMunicipio}}</td>
+                                <td>{{iFLocalidad}}</td>
+                                <td>{{iFAsesor}}</td>
+                                <td>{{decPrecio}}</td>
+                                <td>{{vcSuperficieTerreno}}</td>
+                                <td>{{vcSuperficieConstruccion}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script>Terrenos();</script>

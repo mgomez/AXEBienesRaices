@@ -1,0 +1,29 @@
+SELECT 
+	t.iTerrenoId, 
+    t.vcTitulo,
+    t.vcDescripcion,
+    t.decPrecio,
+    t.vcNumeroInventario,
+    t.iFEstado,
+    t.iFLocalidad,
+    t.iFMunicipio,
+    t.vcDireccion,
+    t.iFTipo,
+    t.vcSuperficieTerreno,
+    t.vcSuperficieConstruccion,
+    t.vcFrente,
+    t.vcFondo,
+    t.vcOperacion,
+    t.iFAsesor,
+    t.iActivo,
+    e.nombre as estado,
+    m.nombre as municipio,
+    l.nombre as localidad,
+    a.vcNombre as asesor,
+    tip.nombre as tipo
+FROM terrenos t
+JOIN estados e ON e.clave_estado = t.iFEstado
+JOIN municipios m ON m.clave_estado = t.iFEstado AND m.clave_municipio = t.iFMunicipio
+JOIN localidades l ON l.clave_estado = t.iFEstado AND l.clave_municipio = t.iFMunicipio AND l.clave_localidad = t.iFLocalidad
+JOIN asesores a ON a.iAsesorId = t.iFAsesor
+JOIN tipos tip ON tip.iFTipo = t.iFTipo

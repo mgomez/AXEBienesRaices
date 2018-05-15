@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-10">
+        <p>
+            <input type="text" id="quicksearch" placeholder="Buscar" />
+        </p>
+        <div class="grid terrenos-container">
+            {{#each this}}
+                <figure id="terreno-{{iTerrenoId}}" data-terreno='{{iTerrenoId}}' class="element-item {{vcOperacion}}" data-precio="{{decPrecio}}">
+                    <img src="img/loading.svg" class="terreno-img">
+                    <figcaption class="nombre">{{vcTitulo}}</figcaption>
+                    <small class="text-muted">{{municipio}}</small>
+                    <h5 class="precio">{{formatCurrency decPrecio}}</h5>
+                    <div>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Direccion: {{vcDireccion}}</p>
+                        <p><i class="fa fa-user-circle" aria-hidden="true"></i> Asesor:{{asesor}}</p>
+                    </div>
+                    <script>getTerrenoIMG({{iTerrenoId}})</script>
+                </figure>
+            {{/each}}
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card">
+            <div class="card-header"><i class="fa fa-filter" aria-hidden="true"></i> Filtros</div>
+            <div class="card-block text-center">
+                <div class="card-title"><i class="fa fa-filter" aria-hidden="true"></i> Filtrar por:</div>
+                <div class="btn-group-vertical filters-button-group">
+                    <button class="btn btn-outline-primary is-checked" data-filter="*">TODOS</button>
+                    <button class="btn btn-outline-primary" data-filter=".venta">VENTA</button>
+                    <button class="btn btn-outline-primary" data-filter=".renta">RENTA</button>
+                    <button class="btn btn-outline-primary" data-filter="numberGreaterThan50">$ > 500M</button>
+                </div>
+                <div class="card-title"><i class="fa fa-sort" aria-hidden="true"></i> Ordenar por:</div>
+                <div class="sort-by-button-group btn-group-vertical">
+                    <button class="btn btn-outline-primary" data-sort-value="original-order">Original</button>
+                    <button class="btn btn-outline-primary" data-sort-value="random">Random</button>
+                    <button class="btn btn-outline-primary" data-sort-value="precio">Nombre</button>
+                    <button class="btn btn-outline-primary" data-sort-value="nombre">Precio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

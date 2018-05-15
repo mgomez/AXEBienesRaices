@@ -1,0 +1,161 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="terrenos.php">Terrenos</a></li>
+    <li class="breadcrumb-item active">{{vcTitulo}}</li>
+</ol>
+<div class="row">
+    <div class="col-md-7">
+        <div id="detalleTerreno" class="detalleTerreno">
+            <div class="card">
+                <div class="card-header">
+                    <h1>{{vcTitulo}}</h1>
+                    <a href="http://maps.google.com/?q={{escape vcDireccion}}" target="_blank" title="ver en google maps"><i class="fa fa-map-marker" aria-hidden="true"></i> {{vcDireccion}}</a>
+                </div>
+                <div class="card-block">
+                    <div id="detalleTerreno-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {{#each galeria}}
+                                <li data-target="#detalleTerreno-carousel" data-slide-to="{{@index}}" class="active"></li>
+                            {{/each}}
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            {{#lengthEqual galeria 1}}
+                                {{#withFirst galeria}}
+                                    <div class="carousel-item active">
+                                        <img class="d-block img-fluid" src="http://axebienesraices.com/admin/{{vcPath}}" alt="{{vcTitulo}}">
+                                    </div>
+                                {{/withFirst}}
+                                {{else}}
+                                    {{#each galeria}}
+                                        {{#is @index 1}}
+                                            <div class="carousel-item active">
+                                                {{else}}
+                                                    <div class="carousel-item">
+                                        {{/is}}
+                                        <img class="d-block img-fluid" src="http://axebienesraices.com/admin/{{vcPath}}" alt="{{vcTitulo}}">
+                                        </div>
+                                    {{/each}}
+                            {{/lengthEqual}}
+                            </div>
+                            <a class="carousel-control-prev" href="#detalleTerreno-carousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#detalleTerreno-carousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <div id="share"></div>
+                        <div class="terreno-precio">
+                            <div class="card card-outline-secondary">
+                                <div class="card-block">
+                                    <div class="terreno-titulo">Precio de Venta del inmueble</div>
+                                    <p class="terreno-precio-precio"><small class="text-muted">Precio desde</small> MN {{formatCurrency decPrecio}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#terreno-descripcion">Descripcion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#terreno-datosGenerales">Datos Generales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#terreno-asesor">Asesor</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="terreno-descripcion" class="tab-pane active" data-role="tabpanel">
+                            <div class="terreno-titulo">Descripcion</div>
+                            <p>{{vcDescripcion}}</p>
+                        </div>
+                        <div id="terreno-datosGenerales" class="tab-pane" data-role="tabpanel">
+                            <div class="terreno-titulo">DATOS PRINCIPALES DE LA PROPIEDAD</div>
+                            <ul class="list-group">
+                                <li class="list-group-item"><b>Estado:</b> {{estado}}</li>
+                                <li class="list-group-item"><b>Localidad:</b> {{localidad}}</li>
+                                <li class="list-group-item"><b>Municipio:</b> {{municipio}}</li>
+                                <li class="list-group-item"><b>Tipo:</b> {{tipo}}</li>
+                                <li class="list-group-item">
+                                    <b>Direccion:</b>
+                                    <a href="http://maps.google.com/?q={{escape vcDireccion}}" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i> {{vcDireccion}}</a>
+                                </li>
+                                <li class="list-group-item"><b>Fondo:</b> {{vcFondo}} m²</li>
+                                <li class="list-group-item"><b>Frente:</b> {{vcFrente}} m²</li>
+                                <li class="list-group-item"><b>Numero Inventario:</b> {{vcNumeroInventario}}</li>
+                                <li class="list-group-item"><b>Operacion:</b> {{vcOperacion}}</li>
+                                <li class="list-group-item"><b>Superficie Construccion:</b> {{vcSuperficieConstruccion}}m²</li>
+                                <li class="list-group-item"><b>Superficie Terreno:</b> {{vcSuperficieTerreno}}m²</li>
+                            </ul>
+                        </div>
+                        <div id="terreno-asesor" class="tab-pane" data-role="tabpanel">
+                            <div class="terreno-titulo" data-id="{{iFAsesor}}">Asesor</div>
+                            <div>
+                                <a href="/asesor.php?id={{iFAsesor}}" data-id="{{iFAsesor}}" class="btn btn-outline-warning">
+                                    <i class="fa fa-address-card fa-2x fa-fw" aria-hidden="true"></i> {{asesor}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="masInformacion card">
+                <div class="card-header">DESEO MÁS INFORMACIÓN</div>
+                <div class="card-block">
+                    <p class="card-title">Estoy interesado en esta propiedad y quiero recibir más información.</p>
+                    <form action="masInformacion.php" id="frm-masInformacion" method="POST">
+                        <div class="form-group row">
+                            <label class="col col-md-3">Nombre</label>
+                            <div class="col">
+                                <input type="text" name="nombre" placeholder="nombre" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col col-md-3">Apellido</label>
+                            <div class="col">
+                                <input type="text" name="apellido" placeholder="apellido" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col col-md-3">Telefono</label>
+                            <div class="col">
+                                <input type="text" name="telefono" placeholder="telefono" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col col-md-3">Email</label>
+                            <div class="col">
+                                <input type="text" name="email" placeholder="email" class="form-control" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="fichaTecnica card">
+                <div class="card-header">
+                    DESEO ENVIAR LA FICHA TÉCNICA DE LA PROPIEDAD
+                </div>
+                <div class="card-block">
+                    <form action="fichaTecnica.php" id="frm-fichaTecnica" method="POST">
+                        <div class="form-group row">
+                            <label class="col col-md-3">Email</label>
+                            <div class="col">
+                                <input type="email" name="email" placeholder="email" class="form-control" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

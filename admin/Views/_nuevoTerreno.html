@@ -1,0 +1,167 @@
+<section id="_nuevoAsesor" class="section">
+    <div class="container">
+        <div class="well page">
+            <h1 class="text-center">Nuevo Terreno</h1>
+            <hr>
+            <form id="frm-setTerreno" data-action="Controllers/TerrenosController.php" class="form-horizontal">
+                <div class="row">
+                    <fieldset class="col-md-6">
+                        <legend>Informacion General</legend>
+                        <div class="form-group">
+                            <label for="vcTitulo" class="control-label col-md-3">Titutlo</label>
+                            <div class="col-md-9">
+                                <input type="text" name="vcTitulo" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="vcDescripcion" class="control-label col-md-3">Descripción</label>
+                            <div class="col-md-9">
+                                <textarea name="vcDescripcion" class="form-control" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="decPrecio" class="control-label col-md-3">Precio</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" name="decPrecio" class="form-control" pattern="^\d+(\.|\,)\d{2}$" required>
+                                    <span class="input-group-addon">MXN</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="vcNumeroInventario" class="control-label col-md-3">Numero Inventario</label>
+                            <div class="col-md-9">
+                                <input type="text" name="vcNumeroInventario" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Operacion</label>
+                            <div class="col-md-9">
+                                <select name="vcOperacion" class="form-control">
+                                    <option value="" disabled>Seleccione una opcion</option>
+                                    <option value="venta" selected>Venta</option>
+                                    <option value="renta">Renta</option>
+                                    <option value="traspaso">Traspaso</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tipo</label>
+                            <div class="col-md-9">
+                                <select name="iFTipo" class="form-control">
+                                    <option value="" disabled>Seleccione una opcion</option>
+                                    <option value="1">Casa</option>
+                                    <option value="2">Casa en condominio</option>
+                                    <option value="3">Departamento</option>
+                                    <option value="4">Desarrollo</option>
+                                    <option value="5">Edificio</option>
+                                    <option value="6">Terreno</option>
+                                    <option value="7">Comercial</option>
+                                    <option value="8">Industrial</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="col-md-6">
+                        <legend>Direccion</legend>
+                        <div class="form-group">
+                            <label for="iFEstado" class="control-label col-md-3">Estado</label>
+                            <div class="col-md-9">
+                                <select id="cbEstados" name="iFEstado" class="form-control select2" required>
+                                    <option value="0" disabled selected>Seleccione una opcion</option>} option
+                                    {{#each Estados}}
+                                        <option value="{{clave_estado}}">{{nombre}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="iFMunicipio" class="control-label col-md-3">Municipio</label>
+                            <div class="col-md-9">
+                                <select id="cbMunicipios" name="iFMunicipio" class="form-control select2" required></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="iFLocalidad" class="control-label col-md-3">Localidad</label>
+                            <div class="col-md-9">
+                                <select id="cbLocalidades" name="iFLocalidad" class="form-control select2" required></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="vcDireccion" class="control-label col-md-3">Direccion</label>
+                            <div class="col-md-9">
+                                <input type="text" name="vcDireccion" class="form-control">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="row">
+                    <fieldset class="col-md-6">
+                        <div class="form-group">
+                            <label for="iFAsesor" class="control-label col-md-3">Asesor</label>
+                            <div class="col-md-9">
+                                <select id="cbAsesor" name="iFAsesor" class="form-control select2">
+                                    {{#each Asesores}}
+                                        <option value="{{iAsesorId}}">{{vcNombre}}</option>}
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3">
+                                <div class="togglebutton">
+                                    <label>
+                                        Activo
+                                        <input type="checkbox" id="ck-iActivo" checked>
+                                        <input type="hidden" name="iActivo" value="1" id="iActivo">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Superficie Terreno</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="number" name="vcSuperficieTerreno" value="{{vcSuperficieTerreno}}" class="form-control">
+                                    <span class="input-group-addon">m²</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Superficie Construccion</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="number" name="vcSuperficieConstruccion" value="{{vcSuperficieConstruccion}}" class="form-control">
+                                    <span class="input-group-addon">m²</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Frente</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="number" name="vcFrente" value="{{vcFrente}}" class="form-control">
+                                    <span class="input-group-addon">mts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Fondo</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="number" name="vcFondo" value="{{vcFondo}}" class="form-control">
+                                    <span class="input-group-addon">mts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <button type="submit" class="btn btn-primary btn-raised">Guardar</button>
+                <button type="button" class="btn btn-danger lastView">Volver</button>
+            </form>
+        </div>
+    </div>
+</section>

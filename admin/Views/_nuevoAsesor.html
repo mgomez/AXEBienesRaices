@@ -1,0 +1,36 @@
+<section id="_nuevoAsesor" class="section">
+    <div class="container">
+        <div class="well page">
+            <h1 class="text-center">Alta Asesor</h1>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="frm-setAsesor" action="Controllers/AsesoresController.php?action=setAsesores" enctype="multipart/form-data" class="form-horizontal" method="post">
+                        <h3>Nuevo Asesor</h3>
+                        <div class="form-group">
+                            <label for="vcNombre" class="control-label col-md-3">Nombre</label>
+                            <div class="col-md-9">
+                                <input type="text" name="vcNombre" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="vcTelefono" class="control-label col-md-3">Telefono</label>
+                            <div class="col-md-9">
+                                <input type="number" name="vcTelefono" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="vcFoto" class="control-label col-md-3">Foto</label>
+                            <div class="col-md-9">
+                                <input type="file" id="vcFoto" name="file" class="btn btn-default" required>
+                                <input type="text" readonly="" class="form-control" placeholder="Seleccione una imagen">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-raised">Guardar</button>
+                        <button type="button" class="btn btn-danger lastView">Volver</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

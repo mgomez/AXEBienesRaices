@@ -1,0 +1,45 @@
+<section id="asesor" class="asesor section">
+    <div class="container">
+        <div class="well page">
+            <h2>
+                <i class="fa fa-address-card" aria-hidden="true"></i>
+                Asesores
+            </h2>
+            <div class="text-right">
+                <button id="btnNuevoAsesor" type="button" class="btn btn-info btn-raised">
+                    <i class="fa fa-plus"></i>
+                    <span>Nuevo Asesor</span>
+                </button>
+            </div>
+            <div class="tableAsesoresContainer">
+                <table id="tableAsesores">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each Asesores}}
+                            <tr>
+                                <td>{{iAsesorId}}</td>
+                                <td>{{vcNombre}}</td>
+                                <td>{{vcTelefono}}</td>
+                                <td class="text-center">
+                                    <img src="{{vcFoto}}" alt="{{vcNombre}}" class="avatar">
+                                </td>
+                                <td class="text-center">
+                                    <button class="btnEliminar btn btn-danger btn-raised" data-row="{{iAsesorId}}"><i class="fa fa-close"></i></button>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script>Asesores();</script>
